@@ -14,14 +14,14 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '6.x'
+  dotNetSdkVersion: '6.x'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+  displayName: 'Use .NET SDK $(dotNetSdkVersion)'
   inputs:
     packageType: sdk
-    version: '$(dotnetSdkVersion)'
+    version: '$(dotNetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -35,7 +35,7 @@ steps:
   displayName: 'Run gulp tasks'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
+  displayName: 'Write build information'
   workingDirectory: $(wwwrootDir)
  
 - task: DotNetCoreCLI@2
